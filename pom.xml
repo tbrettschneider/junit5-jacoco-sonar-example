@@ -17,6 +17,7 @@
 		<assertj.version>3.13.2</assertj.version>
 		<maven-jacoco-plugin.version>0.8.4</maven-jacoco-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+		<sonar-scanner-plugin.version>3.6.1.1688</sonar-scanner-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -60,6 +61,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>${sonar-scanner-plugin.version}</version>
 			</plugin>
 		</plugins>
 	</build>
