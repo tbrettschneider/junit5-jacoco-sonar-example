@@ -18,6 +18,8 @@
 		<maven-jacoco-plugin.version>0.8.4</maven-jacoco-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<sonar-scanner-plugin.version>3.6.1.1688</sonar-scanner-plugin.version>
+		<jacoco.haltOnFailure>true</jacoco.haltOnFailure>
+		<jacoco.skip>false</jacoco.skip>
 	</properties>
 
 	<dependencies>
@@ -59,6 +61,35 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>BUNDLE</element>
+									<excludes>
+										<exclude>*Test</exclude>
+										<exclude>*IT</exclude>
+									</excludes>
+									<limits>
+										<limit>
+											<counter>INSTRUCTION</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.75</minimum>
+										</limit>
+										<limit>
+											<counter>CLASS</counter>
+											<value>MISSEDCOUNT</value>
+											<minimum>0</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
