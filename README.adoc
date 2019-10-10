@@ -1,0 +1,9 @@
+= Maven JaCoCo plugin
+
+==== Skip code coverage analysis:
+
+mvn clean install -Djacoco.skip
+
+==== Run code coverage analysis without failing if definded rules aren't met:
+
+mvn clean install -Djacoco.haltOnFailure=false
